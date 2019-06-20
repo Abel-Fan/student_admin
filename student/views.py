@@ -6,6 +6,7 @@ from django.http import HttpResponse
 def index(request):
     res = Student.objects.all()
     cls = Class_app.objects.all()
+
     return render(request,"student.html",{'res':res,'cls':cls})
 
 def showOne(request,id):
@@ -18,3 +19,4 @@ def search(request):
     name = request.POST.get('name')
     res = Student.objects.filter(name=name).all()
     return render(request,"search.html",{'res':res})
+
